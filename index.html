@@ -75,20 +75,31 @@
 </section>
 
 <!-- SLIDESHOW -->
-<section class="relative h-[260px] sm:h-[320px] md:h-[420px] overflow-hidden">
+<section class="relative h-[360px] md:h-[520px] overflow-hidden">
 
-  <img id="slide"
-       src="slide1.jpg"
-       class="w-full h-full object-cover transition-all duration-[1800ms] ease-in-out scale-105 opacity-100">
+  <!-- Slides -->
+  <div id="slides" class="absolute inset-0">
 
-  <!-- overlay -->
-  <div class="absolute inset-0 bg-black/30"></div>
+    <img src="slide1.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-100">
+    <img src="slide2.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0">
+    <img src="slide3.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0">
+    <img src="slide4.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0">
+    <img src="slide5.jpg" class="slide absolute inset-0 w-full h-full object-cover opacity-0">
 
-  <!-- text -->
-  <div class="absolute inset-0 flex items-center justify-center">
-    <h2 class="text-white text-xl sm:text-3xl md:text-5xl font-bold text-center px-6">
-      Advanced Medical Equipment & Technology Solutions
-    </h2>
+  </div>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/35"></div>
+
+  <!-- Text -->
+  <div class="absolute inset-0 flex items-center">
+    <div class="max-w-7xl mx-auto px-6 w-full">
+      <h2 id="slideText"
+          class="text-white text-2xl md:text-5xl font-bold
+                 translate-x-0 opacity-100 transition-all duration-700">
+        Medical Lab Machines
+      </h2>
+    </div>
   </div>
 
 </section>
@@ -283,30 +294,40 @@ Send Enquiry
 </footer>
 
 <script>
-const images = [
-  "slide1.jpg",
-  "slide2.jpg",
-  "slide3.jpg",
-  "slide4.jpg",
-  "slide5.jpg"
+const slides = document.querySelectorAll(".slide");
+const texts = [
+  "Medical Lab Machines",
+  "Critical Care",
+  "Surgical Apparatus",
+  "Medical Supplies",
+  "Medical Bed and Equipments"
 ];
 
-let i = 0;
-const slide = document.getElementById("slide");
+let index = 0;
+const textEl = document.getElementById("slideText");
 
-function nextSlide() {
-  slide.style.opacity = 0;
-  slide.style.transform = "scale(1.12)";
+setInterval(() => {
+
+  // hide current
+  slides[index].style.opacity = 0;
+
+  // next index
+  index = (index + 1) % slides.length;
+
+  // show next
+  slides[index].style.opacity = 1;
+
+  // text animation (left slide effect)
+  textEl.style.opacity = 0;
+  textEl.style.transform = "translateX(-40px)";
 
   setTimeout(() => {
-    i = (i + 1) % images.length;
-    slide.src = images[i];
-    slide.style.opacity = 1;
-    slide.style.transform = "scale(1.05)";
-  }, 900);
-}
+    textEl.innerText = texts[index];
+    textEl.style.opacity = 1;
+    textEl.style.transform = "translateX(0)";
+  }, 400);
 
-setInterval(nextSlide, 3500);
+}, 3500);
 </script>
 
 <script>
