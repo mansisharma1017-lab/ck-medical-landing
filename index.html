@@ -12,16 +12,36 @@
 <!-- HEADER -->
 <header class="bg-white shadow sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- Logo + Name -->
     <div class="flex items-center gap-3">
-      <img src="ck-logo.jpeg" class="h-12">
-      <span class="font-bold text-lg">CK Medical Systems</span>
+      <img src="ck-logo.jpeg" class="h-14 md:h-16">
+      <span class="font-bold text-xl md:text-2xl">CK Medical Systems</span>
     </div>
-    <nav class="hidden md:flex gap-6 font-medium">
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex gap-8 font-semibold text-lg">
       <a href="#about" class="hover:text-blue-600">About</a>
       <a href="#vision" class="hover:text-blue-600">Vision</a>
       <a href="#products" class="hover:text-blue-600">Products</a>
       <a href="#contact" class="hover:text-blue-600">Contact</a>
     </nav>
+
+    <!-- Mobile Hamburger -->
+    <button id="menuBtn" class="md:hidden text-3xl">
+      ☰
+    </button>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+    <div class="flex flex-col gap-4 px-6 py-4 font-semibold text-lg">
+      <a href="#about">About</a>
+      <a href="#vision">Vision</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -55,16 +75,18 @@
 </section>
 
 <!-- SLIDESHOW -->
-<section class="relative h-[420px] md:h-[520px] overflow-hidden">
+<section class="relative h-[260px] sm:h-[320px] md:h-[420px] overflow-hidden">
 
   <img id="slide"
        src="slide1.jpg"
-       class="w-full h-full object-cover transition-opacity duration-700">
+       class="w-full h-full object-cover transition-all duration-[1800ms] ease-in-out scale-105 opacity-100">
 
+  <!-- overlay -->
   <div class="absolute inset-0 bg-black/30"></div>
 
+  <!-- text -->
   <div class="absolute inset-0 flex items-center justify-center">
-    <h2 class="text-white text-3xl md:text-5xl font-bold text-center px-6">
+    <h2 class="text-white text-xl sm:text-3xl md:text-5xl font-bold text-center px-6">
       Advanced Medical Equipment & Technology Solutions
     </h2>
   </div>
@@ -272,16 +294,25 @@ const images = [
 let i = 0;
 const slide = document.getElementById("slide");
 
-setInterval(() => {
-  i = (i + 1) % images.length;
+function nextSlide() {
   slide.style.opacity = 0;
+  slide.style.transform = "scale(1.12)";
 
   setTimeout(() => {
+    i = (i + 1) % images.length;
     slide.src = images[i];
     slide.style.opacity = 1;
-  }, 400);
+    slide.style.transform = "scale(1.05)";
+  }, 900);
+}
 
-}, 3000);
+setInterval(nextSlide, 3500);
+</script>
+
+<script>
+document.getElementById("menuBtn").onclick = function() {
+  document.getElementById("mobileMenu").classList.toggle("hidden");
+};
 </script>
 
 </body>
