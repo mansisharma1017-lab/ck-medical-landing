@@ -13,7 +13,7 @@
 <header class="bg-white shadow sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <div class="flex items-center gap-3">
-      <img src="CK LOGO.jpeg" class="h-12">
+      <img src="ck-logo.jpeg" class="h-12">
       <span class="font-bold text-lg">CK Medical Systems</span>
     </div>
     <nav class="hidden md:flex gap-6 font-medium">
@@ -54,9 +54,28 @@
   </div>
 </section>
 
+<!-- SLIDESHOW -->
+<section class="relative h-[420px] md:h-[520px] overflow-hidden">
+
+  <img id="slide"
+       src="slide1.jpg"
+       class="w-full h-full object-cover transition-opacity duration-700">
+
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <div class="absolute inset-0 flex items-center justify-center">
+    <h2 class="text-white text-3xl md:text-5xl font-bold text-center px-6">
+      Advanced Medical Equipment & Technology Solutions
+    </h2>
+  </div>
+
+</section>
+
 <!-- ABOUT -->
 <section id="about" class="py-16">
-<div class="max-w-6xl mx-auto px-6">
+
+<div class="max-w-6xl mx-auto px-6 bg-white/85 backdrop-blur-sm rounded-xl py-10">
+
 <h2 class="text-3xl font-bold mb-8 text-center">About Us</h2>
 
 <p class="mb-4">
@@ -80,20 +99,62 @@ we aim to build long-term partnerships based on trust, transparency, and service
 
 <!-- CERTIFICATIONS -->
 <section class="bg-gray-100 py-10">
-<div class="max-w-6xl mx-auto px-6 grid md:grid-cols-6 gap-4 text-center font-semibold">
-<div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer">
-ISO 9001:2015</div>
-<div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer">GMP</div>
-<div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer">IEC</div>
-<div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer">CE</div>
-<div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer">GEM</div>
-<div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-2 transition duration-300 cursor-pointer">Startup India</div>
-</div>
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-6 gap-6 text-center bg-white/85 backdrop-blur-sm rounded-xl py-8">
+
+    <!-- ISO -->
+    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl 
+    hover:-translate-y-2 transition duration-300 cursor-pointer
+    flex flex-col items-center gap-2">
+      <img src="iso.png" class="h-10 object-contain">
+      <span class="font-semibold text-sm">ISO 9001:2015</span>
+    </div>
+
+    <!-- GMP -->
+    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl 
+    hover:-translate-y-2 transition duration-300 cursor-pointer
+    flex flex-col items-center gap-2">
+      <img src="gmp.png" class="h-10 object-contain">
+      <span class="text-sm font-semibold">GMP</span>
+    </div>
+
+    <!-- IEC -->
+    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl 
+    hover:-translate-y-2 transition duration-300 cursor-pointer
+    flex flex-col items-center gap-2">
+      <img src="iec.png" class="h-10 object-contain">
+      <span class="text-sm font-semibold">IEC</span>
+    </div>
+
+    <!-- CE -->
+    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl 
+    hover:-translate-y-2 transition duration-300 cursor-pointer
+    flex flex-col items-center gap-2">
+      <img src="ce.png" class="h-10 object-contain">
+      <span class="text-sm font-semibold">CE</span>
+    </div>
+
+    <!-- GEM -->
+    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl 
+    hover:-translate-y-2 transition duration-300 cursor-pointer
+    flex flex-col items-center gap-2">
+      <img src="gem.png" class="h-10 object-contain">
+      <span class="text-sm font-semibold">GeM</span>
+    </div>
+
+    <!-- Startup India -->
+    <div class="bg-white p-4 rounded-xl shadow-md hover:shadow-2xl 
+    hover:-translate-y-2 transition duration-300 cursor-pointer
+    flex flex-col items-center gap-2">
+      <img src="startup-india.png" class="h-10 object-contain">
+      <span class="text-sm font-semibold">Startup India</span>
+    </div>
+
+  </div>
 </section>
 
 <!-- VISION MISSION VALUES -->
 <section id="vision" class="py-16">
-<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 bg-white/85 backdrop-blur-sm rounded-xl py-10">
 
 <div class="p-6 rounded-xl bg-white shadow-md hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition duration-300">
 <h3 class="text-xl font-bold mb-3 text-blue-700">Vision</h3>
@@ -125,6 +186,7 @@ and more efficiently.
 
 </div>
 </section>
+
 
 <!-- PRODUCTS TABLE -->
 <section id="products" class="py-16 bg-gray-50">
@@ -197,6 +259,30 @@ Send Enquiry
 <footer class="bg-gray-900 text-white text-center py-6">
 © 2026 CK Medical Systems Pvt Ltd 
 </footer>
+
+<script>
+const images = [
+  "slide1.jpg",
+  "slide2.jpg",
+  "slide3.jpg",
+  "slide4.jpg",
+  "slide5.jpg"
+];
+
+let i = 0;
+const slide = document.getElementById("slide");
+
+setInterval(() => {
+  i = (i + 1) % images.length;
+  slide.style.opacity = 0;
+
+  setTimeout(() => {
+    slide.src = images[i];
+    slide.style.opacity = 1;
+  }, 400);
+
+}, 3000);
+</script>
 
 </body>
 </html>
